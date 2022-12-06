@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Apart APP</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <link rel="shortcut icon" href="">
+    <link href="" rel="stylesheet">
+    
+</head>
+<body id="main_page">
+    <div id="container">
+        <div id="preview" class="preview"></div>
+        <header class="page-header">
+            <div class="top-bar-container">
+                <a href="/">
+                <img src="" alt="">
+                </a>
+                <img src="" alt="">
+            </div>
+            <div class="header-content">
+                <strong></strong>
+                <p></p>
+                
+            </div>
+        </header>
+        <main>
+            <input name="file" id="file" type="file"/>
+
+            <fieldset>
+                <legend for="">Opções de rota</legend>
+                <div class="input-block">
+                    <label for="routeType">Tipo de rota</label>
+                    <select name="routeType" id="routeType">
+                        <option value="fastest">Rota mais rápida (carro)</option>
+                        <option value="shortest">Rota mais curta (carro)</option>
+                        <option value="pedestrian">Rota para pedestre</option>
+                    </select>
+                    <label for="unit">Tipo de rota</label>
+                    <select name="unit" id="unit">
+                        <option value="k">Km</option>
+                        <option value="m">Milhas</option>
+                    </select>
+                    <label for="matrixType">Tipo de Matriz</label>
+                    <select name="matrixType" id="matrixType">
+                        <option value="false,false">oneToAll</option>
+                        <option value="true,false">manyToOne</option>
+                        <option value="false,true">allToAll</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <div id="table-container">
+            </div>
+            <button type="button" id="filebutton" onclick="sendfileData()">Enviar arquivo</button>
+            <div id="tbloutput">
+            </div>
+            <form action="/api" id="requestapi" method="POST">
+                <fieldset>
+                   <legend for="name">Apartamento</legend>
+                   <div class="input-block">
+                    <label for="linkurl">Link do anuncio</label>
+                    <input name="linkurl" id="linkurl" type="url" >
+                    </div>
+                   <div class="input-block">
+                       <label for="name">Bairro</label>
+                       <input name="name" id="name" >
+                   </div>
+                   <div class="input-block">
+                        <label for="category">Numero para contato com o anunciante</label>
+                        <input name="category" id="category" type="number" >
+                   </div>
+                   <div class="input-block">
+                    <label for="location">Latitude, Longitude</label>
+                       <input name="location" id="location" required>
+                   </div>
+                   <div class="select-block">
+                    <label for="subject" id="subject">Garagem</label>
+                    <select name="subject" id="subject" >
+                        <option value="" hidden="">Selecione uma opção</option>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
+                     </div>
+                     <div class="select-block">
+                        <label for="routeType" id="routeType">Tipo de Rota</label>
+                        <select name="routeType" id="routeType" >
+                            <option value="" hidden="">Selecione uma opção</option>
+                            <option value="fastest">Rota mais rápida (carro)</option>
+                            <option value="shortest">Rota mais curta (carro)</option>
+                            <option value="pedestrian">Pedestre</option>
+                        </select>
+                         </div>
+                   <div class="textarea-block">
+                       <label for="description">Descrição adicional</label>
+                       <textarea name="description" id="description" ></textarea>
+                   </div>
+               </fieldset>
+               <!-- <fieldset>
+                   <legend>Sobre a aula</legend>
+                   
+                    <div class="input-block">
+                        <label for="cost">Custo da hora/aula <small>(R$)</small></label>
+                        <input name="cost" id="cost" type="number" required>
+                </div> 
+               </fieldset>
+               <fieldset id="schedule-item">
+                   <legend>Horários disponíveis
+                       <button id="add-time" type="button">+ Novo Horário</button>
+                   </legend>
+                   <div class="schedule-item">
+                       <div class="select-block">
+                       <label for="weekday">Dia da semana</label>
+                       <select name="weekday[]" id="weekday" required>
+                        <option value="" hidden="">Selecione uma opção</option>
+                        {%for weekday in weekdays %}
+                            <option value="{{loop.index0}}">
+                                {{weekday}}
+                            </option>
+                        {%endfor%}
+                       </select>
+                    </div>
+                   
+                   <div class="input-block">
+                       <label for="time_from">Das</label>
+                       <input type="time" name="time_from[]" required>
+                   </div>
+                   <div class="input-block">
+                        <label for="time_to">Até</label>
+                        <input type="time" name="time_to[]" required>
+                    </div>
+                    </div>
+
+               </fieldset> -->
+           </form>
+           <footer>
+               <!-- <p>
+                   <img src="/images/icons/warning.svg" alt="Aviso importante">
+                   Importante! <br> Preencha todos os dados
+               </p> -->
+               <button type="submit" form="requestapi">Enviar</button>
+           </footer>
+        </main>
+    </div>
+</body>
+<script src="/index.js"></script>
+</html>
